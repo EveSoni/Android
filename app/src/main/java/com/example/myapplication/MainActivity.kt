@@ -1,11 +1,13 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,6 +18,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Divider
@@ -28,7 +31,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.modifier.ModifierLocal
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -60,8 +65,7 @@ fun Text() {
         .background(Color.LightGray),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Top) {
-        androidx.compose.material3.Text(
-            text = "Hello World",
+        Text("Hello World",
             fontSize = 30.sp,
             color = Color.Blue,
             fontFamily = FontFamily.Cursive,
@@ -70,9 +74,17 @@ fun Text() {
 
         Spacer(modifier = Modifier.height(20.dp))
 
+        val uu = AnnotatedString("Open Login")
+    val ii = LocalContext.current
 
-        androidx.compose.material3.Text(
-            text = "Welcome to Android",
+    ClickableText(text = uu, onClick = {
+
+        ii.startActivity(Intent(ii, EveActivity2::class.java))
+
+    } )
+
+
+        Text("Welcome to Android",
             fontSize = 25.sp,
             color = Color.Red,
             fontStyle = FontStyle.Italic,
@@ -80,7 +92,7 @@ fun Text() {
 
         Spacer(modifier = Modifier.height(40.dp))
 
-        androidx.compose.material3.Text(text = "Evelyne",
+        Text("Evelyne",
             fontWeight = FontWeight.ExtraBold,
             textAlign = TextAlign.Right,
             color = Color.Black,
@@ -94,7 +106,7 @@ fun Text() {
         Spacer(modifier = Modifier.height(20.dp))
 
         Row {
-            androidx.compose.material3.Text(text = "Text 1",
+            Text("Text 1",
                 fontSize = 50.sp,
                 fontWeight = FontWeight.ExtraBold,
                 color = Color.Red)
@@ -113,7 +125,7 @@ fun Text() {
            Button(onClick = { /*TODO*/ },
                shape = RectangleShape,
                colors = ButtonDefaults.buttonColors(Color.Black)) {
-               androidx.compose.material3.Text(text = "Next",
+               Text(text = "Next",
                    fontSize = 20.sp)
            }
            Spacer(modifier = Modifier.width(20.dp))
@@ -122,7 +134,7 @@ fun Text() {
                colors = ButtonDefaults.buttonColors(Color.Blue),
                shape = RoundedCornerShape(5.dp)
            ) {
-               androidx.compose.material3.Text(text = "Home",
+               Text(text = "Home",
                    fontSize = 20.sp)
            }
 
@@ -132,10 +144,12 @@ fun Text() {
                shape = RoundedCornerShape(5.dp),
                border = BorderStroke(width = 2.dp, Color.Red)
            ) {
-               androidx.compose.material3.Text(text = "Form",
+               Text("Form",
                    fontSize = 20.sp,
                    color = Color.Cyan)
            }
+
+
 
        }
         Image(painterResource(id = R.drawable.button),
@@ -152,26 +166,34 @@ fun Text() {
             colors = ButtonDefaults.buttonColors(Color.Cyan))
         {
                 Image(painterResource(id =R.drawable.carticon ),
-                    contentDescription = "Cart button icon")
-           androidx.compose.material3.Text(text = "Add to cart",
+                    contentDescription = null )
+           Text( "Add to cart",
                fontSize = 20.sp,
                modifier = Modifier.padding(start = 10.dp),
                color = Color.Black)
         }
-        Spacer(modifier = Modifier.height(20.dp) )
 
-        Button(onClick = { /*TODO*/ },
+        Spacer(modifier = Modifier.height(20.dp))
+
+        val jj = LocalContext.current
+
+        Button(onClick = {
+                         jj.startActivity(Intent(jj, EveActivity::class.java))
+                         },
             shape = RectangleShape,
             border = BorderStroke(2.dp, color = Color.Red),
             colors = ButtonDefaults.buttonColors(Color.White))
         {
             Image(painterResource(id = R.drawable.signupicon ),
-                    contentDescription = "Sign up icon" )
-            androidx.compose.material3.Text(text = "Sign up",
+                    contentDescription = null )
+            Text(text = "Sign up",
                 fontSize = 20.sp,
                 modifier = Modifier.padding(start = 5.dp),
                 color = Color.Black)
         }
+
+
+
     }
 }
 

@@ -13,9 +13,29 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".EveActivity3"
+            android:exported="false"
+            android:label="@string/title_activity_eve3"
+            android:theme="@style/Theme.MyApplication" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false"
+            android:label="@string/title_activity_register"
+            android:theme="@style/Theme.MyApplication" />
+        <activity
+            android:name=".EveActivity2"
+            android:exported="false"
+            android:label="@string/title_activity_eve2"
+            android:theme="@style/Theme.MyApplication" />
+        <activity
+            android:name=".EveActivity"
+            android:exported="false"
+            android:label="@string/title_activity_eve"
+            android:theme="@style/Theme.MyApplication" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
+            android:label="Maeve"
             android:theme="@style/Theme.MyApplication">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

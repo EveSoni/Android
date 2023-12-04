@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="title_activity_eve">EveActivity</string>
+    <string name="title_activity_eve2">EveActivity2</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_eve3">EveActivity3</string>
 </resources>
