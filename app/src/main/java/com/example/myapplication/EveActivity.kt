@@ -97,7 +97,7 @@ fun Alien(){
 
             Column(modifier = Modifier.fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally){
-                Button(onClick = { jk.startActivity(Intent(jk, EveActivity3::class.java)) },
+                Button(onClick = { jk.startActivity(Intent(jk, MainActivity2::class.java)) },
                     colors = ButtonDefaults.buttonColors(Color.White),
                     border = BorderStroke(1.dp, Color.Cyan),
                     shape = AbsoluteRoundedCornerShape(5.dp)

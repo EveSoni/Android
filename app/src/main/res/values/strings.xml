@@ -4,4 +4,5 @@
     <string name="title_activity_eve2">EveActivity2</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_eve3">EveActivity3</string>
+    <string name="title_activity_main2">MainActivity2</string>
 </resources>
