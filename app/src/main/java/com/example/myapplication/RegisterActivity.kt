@@ -34,9 +34,6 @@ class RegisterActivity : ComponentActivity() {
         setContent {
             Nav()
 
-
-
-
         }
     }
 }

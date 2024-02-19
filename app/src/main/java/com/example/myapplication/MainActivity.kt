@@ -1,204 +1,270 @@
 package com.example.myapplication
 
 import android.content.Intent
+import androidx.compose.foundation.clickable
+import androidx.compose.ui.platform.LocalContext
+
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.AbsoluteRoundedCornerShape
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.modifier.ModifierLocal
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.ui.theme.MyApplicationTheme
 
-class MainActivity : ComponentActivity() {
+class MainActivity2 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Text()
+            Chester()
 
+            Kwanza()
 
         }
-
-
-
     }
 }
 
 @Composable
-fun Text() {
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.LightGray),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Top) {
-        Text("Hello World",
-            fontSize = 30.sp,
-            color = Color.Blue,
-            fontFamily = FontFamily.Cursive,
-            fontWeight = FontWeight.Bold,
-            textDecoration = TextDecoration.Underline)
+fun Chester(){
+    LazyColumn(){
+        item{
+            Column(modifier= Modifier
+                .fillMaxWidth()
+                .padding(10.dp)) {
+                Box{
+                    Image(painter = painterResource(id = R.drawable.schlogo),
+                        contentScale = ContentScale.FillBounds,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(200.dp),
+                        contentDescription = null)
+                    }
+                }
 
-        Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(20.dp) )
 
-        val uu = AnnotatedString("Open Login")
-    val ii = LocalContext.current
+            Row( modifier = Modifier.padding(start=10.dp, end=10.dp)){
+                Button(onClick = { /*TODO*/ },
+                    colors = ButtonDefaults.buttonColors(Color.Yellow),
+                    border = BorderStroke(1.dp, Color.White),
+                    shape = RoundedCornerShape(25.dp)
+                ) {
+                    Image(painter = painterResource(id = R.drawable.book_icon ) ,
+                        contentDescription = null)
 
-    ClickableText(text = uu, onClick = {
+                    val aa = LocalContext.current
+                    Text("School Info", Modifier.clickable {
+                        aa.startActivity(Intent(aa, SchoolActivity::class.java))
+                    })
+                }
 
-        ii.startActivity(Intent(ii, EveActivity2::class.java))
+                Spacer(modifier = Modifier.width(20.dp))
 
-    } )
+                        Button(onClick = { /*TODO*/ },
+                    colors = ButtonDefaults.buttonColors(Color.Yellow),
+                    border = BorderStroke(1.dp, Color.White),
+                    shape = RoundedCornerShape(25.dp)
+                ) {
+                    Image(painter = painterResource(id = R.drawable.page_icon ) ,
+                        contentDescription = null)
 
+                            val bb = LocalContext.current
+                            Text("Student Info", Modifier.clickable {
+                                bb.startActivity(Intent(bb, StudentActivity::class.java))
+                            })
+                }
 
-        Text("Welcome to Android",
-            fontSize = 25.sp,
-            color = Color.Red,
-            fontStyle = FontStyle.Italic,
-            fontWeight = FontWeight.Bold)
+                Spacer(modifier = Modifier.width(20.dp))
 
-        Spacer(modifier = Modifier.height(40.dp))
+                Button(onClick = { /*TODO*/ },
+                    colors = ButtonDefaults.buttonColors(Color.Yellow),
+                    border = BorderStroke(1.dp, Color.White),
+                    shape = RoundedCornerShape(25.dp)
+                ) {
+                    Image(painter = painterResource(id = R.drawable.academics ) ,
+                        contentDescription = null)
 
-        Text("Evelyne",
-            fontWeight = FontWeight.ExtraBold,
-            textAlign = TextAlign.Right,
-            color = Color.Black,
-            fontSize = 50.sp,
-            modifier = Modifier.padding(start = 30.dp))
+                    val cc = LocalContext.current
+                    Text("Academics", Modifier.clickable {
+                        cc.startActivity(Intent(cc, RegisterActivity::class.java))
+                    })
+                }
+            }
 
-        Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(5.dp) )
 
-        Divider()
+            Row( modifier = Modifier.padding(start=10.dp, end=10.dp)){
+                Button(onClick = { /*TODO*/ },
+                    colors = ButtonDefaults.buttonColors(Color.Yellow),
+                    border = BorderStroke(1.dp, Color.White),
+                    shape = RoundedCornerShape(25.dp)
+                ) {
+                    Image(painter = painterResource(id = R.drawable.attendance ) ,
+                        contentDescription = null)
 
-        Spacer(modifier = Modifier.height(20.dp))
+                    val dd = LocalContext.current
+                    Text("Attendance", Modifier.clickable {
+                        dd.startActivity(Intent(dd, RegisterActivity::class.java))
+                    })
+                }
 
-        Row {
-            Text("Text 1",
-                fontSize = 50.sp,
-                fontWeight = FontWeight.ExtraBold,
-                color = Color.Red)
+                Spacer(modifier = Modifier.width(20.dp))
 
-            Spacer(modifier = Modifier.width(50.dp))
+                Button(onClick = { /*TODO*/ },
+                    colors = ButtonDefaults.buttonColors(Color.Yellow),
+                    border = BorderStroke(1.dp, Color.White),
+                    shape = RoundedCornerShape(25.dp)
+                ) {
+                    Image(painter = painterResource(id = R.drawable.activity_icon ) ,
+                        contentDescription = null)
 
-            androidx.compose.material3.Text(text = "Text 2",
-                fontSize = 50.sp,
-                fontWeight = FontWeight.ExtraBold,
-                color = Color.Blue)
+                    val ee = LocalContext.current
+                    Text("Activities", Modifier.clickable {
+                        ee.startActivity(Intent(ee, RegisterActivity::class.java))
+                    })
+                }
+
+                Spacer(modifier = Modifier.width(20.dp))
+
+                Button(onClick = { /*TODO*/ },
+                    colors = ButtonDefaults.buttonColors(Color.Yellow),
+                    border = BorderStroke(1.dp, Color.White),
+                    shape = RoundedCornerShape(25.dp)
+                ) {
+                    Image(painter = painterResource(id = R.drawable.bus ) ,
+                        contentDescription = null)
+
+                    val ff = LocalContext.current
+                    Text("transport", Modifier.clickable {
+                        ff.startActivity(Intent(ff, RegisterActivity::class.java))
+                    })
+                }
+            }
+
+            Spacer(modifier = Modifier.height(5.dp) )
+
+            Row( modifier = Modifier.padding(start=20.dp, end=20.dp)){
+                Button(onClick = { /*TODO*/ },
+                    colors = ButtonDefaults.buttonColors(Color.Yellow),
+                    border = BorderStroke(1.dp, Color.White),
+                    shape = RoundedCornerShape(25.dp)
+                ) {
+                    Image(painter = painterResource(id = R.drawable.fees_icon ) ,
+                        contentDescription = null)
+
+                    val gg = LocalContext.current
+                    Text("Fees", Modifier.clickable {
+                        gg.startActivity(Intent(gg, RegisterActivity::class.java))
+                    })
+                }
+
+                Spacer(modifier = Modifier.width(20.dp))
+
+                Button(onClick = { /*TODO*/ },
+                    colors = ButtonDefaults.buttonColors(Color.Yellow),
+                    border = BorderStroke(1.dp, Color.White),
+                    shape = RoundedCornerShape(25.dp)
+                ) {
+                    Image(painter = painterResource(id = R.drawable.shopping_icon ) ,
+                        contentDescription = null)
+
+                    val hh = LocalContext.current
+                    Text("Shopping", Modifier.clickable {
+                        hh.startActivity(Intent(hh, RegisterActivity::class.java))
+                    })
+                }
+
+                Spacer(modifier = Modifier.width(20.dp))
+
+                Button(onClick = { /*TODO*/ },
+                    colors = ButtonDefaults.buttonColors(Color.Yellow),
+                    border = BorderStroke(1.dp, Color.White),
+                    shape = RoundedCornerShape(25.dp)
+                ) {
+                    Image(painter = painterResource(id = R.drawable.records_icon ) ,
+                        contentDescription = null)
+
+                    val ii = LocalContext.current
+                    Text("Records", Modifier.clickable {
+                        ii.startActivity(Intent(ii, RegisterActivity::class.java))
+                    })
+                }
+            }
+
         }
-
-        Spacer(modifier = Modifier.height(30.dp))
-
-       Row(modifier = Modifier.padding(start = 20.dp)) {
-           Button(onClick = { /*TODO*/ },
-               shape = RectangleShape,
-               colors = ButtonDefaults.buttonColors(Color.Black)) {
-               Text(text = "Next",
-                   fontSize = 20.sp)
-           }
-           Spacer(modifier = Modifier.width(20.dp))
-
-           Button(onClick = { /*TODO*/ },
-               colors = ButtonDefaults.buttonColors(Color.Blue),
-               shape = RoundedCornerShape(5.dp)
-           ) {
-               Text(text = "Home",
-                   fontSize = 20.sp)
-           }
-
-           Spacer(modifier = Modifier.width(20.dp))
-
-           Button(onClick = { /*TODO*/ },
-               shape = RoundedCornerShape(5.dp),
-               border = BorderStroke(width = 2.dp, Color.Red)
-           ) {
-               Text("Form",
-                   fontSize = 20.sp,
-                   color = Color.Cyan)
-           }
-
-
-
-       }
-        Image(painterResource(id = R.drawable.button),
-            contentDescription = "mushrooms" )
-
-        Spacer(modifier = Modifier.height(20.dp) )
-
-        Image(painterResource(id = R.drawable.chai),
-            contentDescription = "Chai image",
-            modifier = Modifier.size(90.dp))
-
-        Button(onClick = { /*TODO*/ },
-            shape = RoundedCornerShape(5.dp),
-            colors = ButtonDefaults.buttonColors(Color.Cyan))
-        {
-                Image(painterResource(id =R.drawable.carticon ),
-                    contentDescription = null )
-           Text( "Add to cart",
-               fontSize = 20.sp,
-               modifier = Modifier.padding(start = 10.dp),
-               color = Color.Black)
-        }
-
-        Spacer(modifier = Modifier.height(20.dp))
-
-        val jj = LocalContext.current
-
-        Button(onClick = {
-                         jj.startActivity(Intent(jj, EveActivity::class.java))
-                         },
-            shape = RectangleShape,
-            border = BorderStroke(2.dp, color = Color.Red),
-            colors = ButtonDefaults.buttonColors(Color.White))
-        {
-            Image(painterResource(id = R.drawable.signupicon ),
-                    contentDescription = null )
-            Text(text = "Sign up",
-                fontSize = 20.sp,
-                modifier = Modifier.padding(start = 5.dp),
-                color = Color.Black)
-        }
-
-
-
     }
 }
+@Composable
+fun Kwanza() {
+        Surface(
+            modifier = Modifier.fillMaxSize()
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(15.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(200.dp)
+                        .padding(horizontal = 15.dp, vertical = 10.dp)
+                        .clip(MaterialTheme.shapes.large)
+                ) {
+                    Image(
+                        painter = painterResource(R.drawable.bus),
+                        contentDescription = "home_screen_bg",
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
+                Text(
+                    "Home Screen",
+                    style = MaterialTheme.typography.titleLarge,
+                    modifier = Modifier.padding(vertical = 20.dp)
+                )
+            }
+        }
+
+}
+
 
 @Preview(showBackground = true)
 @Composable
-fun TextPreview(){
-    Text()
+fun ChesterPreview(){
+    Chester()
 }
